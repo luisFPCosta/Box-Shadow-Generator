@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Gerador de BoxShadow</title>
+		<link rel="stylesheet" href="css/styles.css" />
+		<script src="js/scripts.js" defer></script>
+	</head>
+	<body>
+		<header>
+			<h1>Gerador de Box Shadow</h1>
+			<p>Home</p>
+		</header>
+		<main>
+			<div id="generator-container">
+				<div id="box-shadow-generator">
+					<div id="controls-container">
+						<h2>Configurações da box Shadow</h2>
+						<div class="form-control">
+							<div class="range-input">
+								<label for="horizontal">Deslocamento Horizontal:</label>
+								<input
+									type="range"
+									name="horizontal"
+									id="horizontal"
+									min="-100"
+									max="100"
+									value="5"
+								/>
+							</div>
+							<div class="reference-input">
+								<input
+									type="text"
+									id="horizontal-value"
+									name="horizontal-value"
+								/>
+								<p>px</p>
+							</div>
+						</div>
+
+						<div class="form-control">
+							<div class="range-input">
+								<label for="vertical">Deslocamento Vertical:</label>
+								<input
+									type="range"
+									name="vertical"
+									id="vertical"
+									min="-100"
+									max="100"
+									value="5"
+								/>
+							</div>
+							<div class="reference-input">
+								<input type="text" id="vertical-value" name="vertical-value" />
+								<p>px</p>
+							</div>
+						</div>
+						<div class="form-control">
+							<div class="range-input">
+								<label for="blur">Intensidade do Borrão:</label>
+								<input
+									type="range"
+									name="blur"
+									id="blur"
+									min="0"
+									max="100"
+									value="10"
+								/>
+							</div>
+							<div class="reference-input">
+								<input type="text" id="blur-value" name="blur-value" />
+								<p>px</p>
+							</div>
+						</div>
+						<div class="form-control">
+							<div class="range-input">
+								<label for="spread">Intensidade do Espalhamento:</label>
+								<input
+									type="range"
+									name="spread"
+									id="spread"
+									min="-100"
+									max="100"
+									value="3"
+								/>
+							</div>
+							<div class="reference-input">
+								<input type="text" id="spread-value" name="spread-value" />
+								<p>px</p>
+							</div>
+						</div>
+						<div class="form-control">
+							<div class="range-input">
+								<label for="color">Cor da sombra:</label>
+								<input type="color" name="color" id="color" value="#000000" />
+							</div>
+							<div class="reference-input">
+								<input type="text" id="color-value" name="color-value" />
+							</div>
+						</div>
+						<div class="form-control">
+							<div class="range-input">
+								<label for="opacity">Opacidade:</label>
+								<input
+									type="range"
+									name="opacity"
+									id="opacity"
+									min="0"
+									max="1"
+									value="1"
+									step=".01"
+								/>
+							</div>
+							<div class="reference-input">
+								<input type="text" id="opacity-value" name="opacity-value" />
+							</div>
+						</div>
+						<div class="form-control">
+							<div id="inset-container">
+								<label for="inset">Sombras internas? (Inset)</label>
+								<input type="checkbox" name="inset" id="inset" />
+							</div>
+						</div>
+					</div>
+					<div id="preview">
+						<h2>Preview do efeito gerado:</h2>
+						<div id="box"></div>
+					</div>
+				</div>
+				<div id="generated-rule">
+					<h2>Copie e cole no seu CSS:</h2>
+					<div id="rules-area">
+						<p id="rule">box-shadow: <span></span>;</p>
+						<p id="webkit-rule">-webkit-box-shadow: <span></span>;</p>
+						<p id="moz-rule">-moz-box-shadow: <span></span>;</p>
+					</div>
+					<p id="copy-instructions">
+						Clique no quadro acima para copiar as regras.
+					</p>
+				</div>
+			</div>
+			<div id="informations">
+				<h2>O que é o Gerador de box shadow? (Box shadow Generator)</h2>
+				<p>
+					O box-shadow é uma propriedade do CSS, é utilizado para adicionar
+					efeitos de sombra em volta de um elemento. Você pode especificar mais
+					de um efeito, os separando com virgulas. Uma box-shadow é descrita
+					pelo deslocamentos (offset) X e Y em relação ao elemento, desfoco e
+					propagação do raio e cor.
+				</p>
+				<h2>O que faz a regra box-shadow?</h2>
+				<p>
+					Com base em alguns parâmetros ela adiciona uma sombra aos elementos,
+					podendo gerar diversos efeitos, como: destaque ou levitação. Muitos
+					projetos implementam esta regra, fazendo com que o desenvolvedor tenha
+					que recorrer a documentação da mesma sempre que precisa fazer algo. Os
+					parâmetros da box-shadow são:
+				</p>
+				<ul>
+					<li>offset-x;</li>
+					<li>offset-y;</li>
+					<li>cor;</li>
+					<li>opacidade;</li>
+					<li>raio de intensidade (blur);</li>
+					<li>raio de espalhamento (spread);</li>
+					<li>inset</li>
+				</ul>
+				<p>
+					Vamos ver o que cada um deles faz a seguir, mas perceba a complexidade
+					da configuração da regra.
+				</p>
+				<h2>O valor de offset-x em box-shadow:</h2>
+				<p>
+					O offset no eixo x representa o deslocamento da sombra gerada no eixo
+					horizontal, podendo ser negativo ou positivo.
+				</p>
+				<h2>O valor de offset-y em box-shadow:</h2>
+				<p>
+					O offset no eixo y representa o deslocamento da sombra gerada no eixo
+					vertical, podendo ser negativo ou positivo.
+				</p>
+				<h2>O valor de cor em box-shadow:</h2>
+				<p>
+					A cor muda a cor da sombra gerada, podemos informar em vários
+					formatos, como: Hexadecimal ou RGB O RGB acaba sendo mais utilizado
+					pois conseguimos controlar a opacidade, alterando o valor de alpha
+					(RGBA).
+				</p>
+				<h2>O valor de opacidade em box-shadow:</h2>
+				<p>
+					A opacidade é alterada com a cor, utilizando o padrão RGBA, o valor
+					aceito é de 0 a 1 Sendo 0 completamente invisível, podemos controlar a
+					intensidade com .5 por exemplo, que representa 50% de visibilidade,
+					para chegar a valores intermediários.
+				</p>
+				<h2>O valor de blur em box-shadow:</h2>
+				<p>
+					Com blur conseguimos deixar a sombra mais ‘esfumaçada’ e não sólida,
+					que é o seu padrão O valor é colocado em px, quanto maior mais
+					transparente também a sombra acaba ficando, pois ela também ganha mais
+					área, dando um aspecto borrado ao efeito de sombra.
+				</p>
+				<h2>O valor de spread em box-shadow:</h2>
+				<p>
+					Alterando o spread a sombra vai se espalhar mais ao longo da página,
+					aumentando o seu tamanho O valor também inserido em pixels, permitindo
+					valores negativos.
+				</p>
+				<h2>O valor de inset em box-shadow:</h2>
+				<p>
+					O inset pode ser inserido na regra e deixa a sombra dentro do elemento
+					Ou seja, ao invés da sombra ser externa ela se torna interna.
+				</p>
+				<h2>Sobre o projeto:</h2>
+				<p>
+					Projeto feito com base no Curso de Desenvolvimento Web
+					<a href="https://horadecodar.com.br/" target="_blank">
+						Hora de Codar</a
+					>, com o professor
+					<a href="https://horadecodar.com.br/hora-de-codar/" target="_blank"
+						>Matheus Battisti</a
+					>.
+				</p>
+			</div>
+		</main>
+		<footer>
+			<a href="https://github.com/luisFPCosta" target="_blank"
+				>Portifólio de LuisFPCosta</a
+			>
+		</footer>
+	</body>
+</html>
